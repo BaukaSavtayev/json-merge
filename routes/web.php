@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MergedResponseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', [MergedResponseController::class, 'index']);
+Route::get('/merged-response', [MergedResponseController::class, 'mergedResponse']);
+Route::post('/upload-response', [MergedResponseController::class, 'upload']);
